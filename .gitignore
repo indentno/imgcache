@@ -1,0 +1,11 @@
+.DS_Store
+/.vscode
+/node_modules
+/vendor
+/fonts
+.env
+.php-cs-fixer.cache
+.phpunit.result.cache
+.php_cs.cache
+todo.md
+/public/js/app.js.LICENSE.txt

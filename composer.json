@@ -1,0 +1,36 @@
+{
+    "name": "indent/imgcache",
+    "version": "1.0.0",
+    "description": "Automagically cache images from any source in your Laravel app",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ecrmnn",
+            "email": "danieleckermann@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^7.2",
+        "phpunit/phpunit": "^9.5",
+        "sempro/phpunit-pretty-print": "^1.4",
+        "friendsofphp/php-cs-fixer": "^3.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Indent\\Imgcache\\": "src/",
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Indent\\Imgcache\\Providers\\ServiceProvider"
+            ]
+        }
+    }
+}
