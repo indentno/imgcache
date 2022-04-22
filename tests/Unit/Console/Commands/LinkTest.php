@@ -52,7 +52,7 @@ class LinkTest extends BaseTest
     {
         Artisan::call('imgcache:link');
 
-        $this->assertSame('.gitignore', File::allFiles($this->imgcachePath, true)[0]->getRelativePathname());
+        $this->assertImgcacheHasGitignore();
     }
 
     public function tearDown(): void

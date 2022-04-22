@@ -18,6 +18,7 @@ class ClearCacheTest extends BaseTest
         
         Artisan::call(ClearCache::class);
         $this->assertImgcacheFileCount(0);
+        $this->assertImgcacheHasGitignore();
     }
 
     public function testCanBeCalledWithSignature()
@@ -27,5 +28,6 @@ class ClearCacheTest extends BaseTest
         
         Artisan::call('imgcache:clear');
         $this->assertImgcacheFileCount(0);
+        $this->assertImgcacheHasGitignore();
     }
 }

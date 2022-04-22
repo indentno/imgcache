@@ -5,6 +5,7 @@ namespace Tests;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
+use Symfony\Component\Finder\SplFileInfo;
 
 abstract class BaseTest extends OrchestraTestCase
 {
@@ -21,6 +22,14 @@ abstract class BaseTest extends OrchestraTestCase
     protected function assertImgcacheFileCount(int $count)
     {
         $this->assertCount($count, File::allFiles(storage_path('imgcache')));
+    }
+
+    protected function assertImgcacheHasGitignore()
+    {
+        $file = collect(File::allFiles(storage_path('imgcache'), true))
+            ->first(fn (SplFileInfo $file) => $file->getRelativePathname() === '.gitignore');
+
+        $this->assertNotNull($file);
     }
 
     protected function getEnvironmentSetUp($app)

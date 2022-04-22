@@ -2,8 +2,9 @@
 
 namespace Indent\Imgcache\Console\Commands;
 
-use Illuminate\Console\Command;
+use Symfony\Component\Finder\SplFileInfo;
 use Illuminate\Support\Facades\File;
+use Illuminate\Console\Command;
 
 class ClearCache extends Command
 {
@@ -12,7 +13,9 @@ class ClearCache extends Command
 
     public function handle()
     {
-        File::cleanDirectory(storage_path('imgcache'));
+        collect(File::allFiles(storage_path('imgcache'), true))
+            ->reject(fn (SplFileInfo $file) => $file->getRelativePathname() === '.gitignore')
+            ->each(fn (SplFileInfo $file) => unlink($file->getRealPath()));
 
         $this->info('Imgcache cleared successfully.');
     }
