@@ -69,13 +69,13 @@ Apply blur effect to image
 #### `brightness(int {-99, 100} $brightness): self;`
 Apply brightness / darkness to image
 
-#### `crop(int {50+} $width, int {50+} $height): self;`
+#### `crop(int {50+} $width, int|null {null|50+} $height = null): self;`
 Crops image into specified size
 
 #### `get(): string;`
 Return relative URL to image
 
-#### `height(int {50+} $width, int|null {null|50+} $height = null): self;`
+#### `height(int {50+} $height): self;`
 Resize image to specified height with automatic width
 
 #### `make(string {url} $source): self;`
@@ -84,7 +84,7 @@ Create new instance of Imgcache
 #### `pixelate(int {1, 200} $pixelate): self;`
 Apply pixelate effect to image
 
-#### `width(int {50+} $width, int|null {null|50+} $height = null): self;`
+#### `width(int {50+} $width): self;`
 Resize image to specified width with automatic height
 
 ### Drivers
