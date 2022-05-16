@@ -2,9 +2,9 @@
 
 namespace Indent\Imgcache\Console\Commands;
 
-use Symfony\Component\Finder\SplFileInfo;
-use Illuminate\Support\Facades\File;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\File;
+use Symfony\Component\Finder\SplFileInfo;
 
 class ClearCache extends Command
 {
