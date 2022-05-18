@@ -147,4 +147,18 @@ class CloudinaryTest extends BaseTest
             $i++;
         }
     }
+
+    public function testSavesErrorImageWhenFail()
+    {
+        $url = 'https://fake-url-xoxo.com/fake-img.jpg';
+        
+        $path = Imgcache::make($url)->width(100)->get();
+
+        $this->assertImgcacheFileCount(1);
+
+        $this->assertSame(
+            file_get_contents(__DIR__ . '/../../resources/img/error.png'),
+            file_get_contents(storage_path($path)),
+        );
+    }
 }

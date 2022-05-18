@@ -2,10 +2,19 @@
 
 namespace Indent\Imgcache\Imgcache;
 
+use Exception;
+use Illuminate\Support\Facades\Log;
+
 class DownloadManager
 {
-    public function get(string $url): string
+    public function get(string $processedUrl): string
     {
-        return file_get_contents($url);
+        try {
+            return file_get_contents($processedUrl);
+        } catch (Exception $e) {
+            Log::error($e);
+
+            return file_get_contents(__DIR__ . '/../../resources/img/error.png');
+        }
     }
 }
