@@ -30,13 +30,12 @@ abstract class BaseDriver
 
     protected function getHashName(string $source, array $options, string $extension = null): string
     {
-        $date = date('Ymd');
         $appKeyHash = sha1(config('app.key'));
         $hash = sha1($source . json_encode($options) . $appKeyHash);
         
         $ext = $extension ?? $this->getSourceFileExtension($source);
 
-        return "{$date}-{$hash}.{$ext}";
+        return "{$hash}.{$ext}";
     }
 
     protected function createCachedFile(string $hashName, string $contents): string

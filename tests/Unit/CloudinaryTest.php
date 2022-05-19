@@ -54,6 +54,8 @@ class CloudinaryTest extends BaseTest
         Imgcache::make('https://picsum.photos/id/1/100/100')->get();
         $this->assertImgcacheFileCount(1);
         
+        $this->travel(1)->year();
+        
         Imgcache::make('https://picsum.photos/id/1/100/100')->get();
         $this->assertImgcacheFileCount(1);
     }
